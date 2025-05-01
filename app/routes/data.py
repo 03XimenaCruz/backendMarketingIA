@@ -1,5 +1,6 @@
 from fastapi import APIRouter
 from app.services.data_processing import DataProcessor
+import os
 
 router = APIRouter()
 
@@ -23,3 +24,12 @@ async def get_pca():
     processor.cluster_data()
     pca_data = processor.apply_pca()
     return pca_data
+
+@router.get("/debug/files")
+async def debug_files():
+    try:
+        data_path = os.getenv("DATA_PATH", "data/sales_data_sample.csv")
+        files = os.listdir(os.path.dirname(data_path))
+        return {"files": files}
+    except Exception as e:
+        return {"error": str(e)}
