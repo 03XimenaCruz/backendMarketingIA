@@ -4,9 +4,14 @@ from app.routes import data, visualizations
 
 app = FastAPI()
 
+# Configuración de CORS
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["http://localhost:5173"],
+    allow_origins=[
+        "http://localhost:5173",           # Desarrollo local
+        "https://marketing-ia.netlify.app",    # Reemplaza con la URL de tu frontend en Netlify
+        # Opcional: usa ["*"] para permitir todos los orígenes (solo para pruebas)
+    ],
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
