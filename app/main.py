@@ -9,7 +9,7 @@ app.add_middleware(
     CORSMiddleware,
     allow_origins=[
         "http://localhost:5173",           # Desarrollo local
-        "https://marketing-ia.netlify.app",    # Reemplaza con la URL de tu frontend en Netlify
+        "https://marketing-ia-ximena.netlify.app/",    # Reemplaza con la URL de tu frontend en Netlify
         # Opcional: usa ["*"] para permitir todos los orígenes (solo para pruebas)
     ],
     allow_credentials=True,
